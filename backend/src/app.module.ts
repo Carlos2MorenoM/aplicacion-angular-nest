@@ -5,6 +5,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 import { Contact } from './entities/contact.entity';
+import { ContactService } from './contact/contact.service';
+import { ContactsController } from './contacts/contacts.controller';
+
 
 require('dotenv').config();
 
@@ -22,7 +25,7 @@ require('dotenv').config();
     }),
     TypeOrmModule.forFeature([Contact]),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, ContactsController],
+  providers: [AppService, ContactService],
 })
 export class AppModule {}
